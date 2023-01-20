@@ -30,12 +30,14 @@ socketio = SocketIO(app)
 
 def server_side_send(interval):
     number = random.randint(1, 100)
-    socketio.emit('my_event', number)
-    time.sleep(interval)
-        
-    
     t = time.localtime()
+    socketio.emit('my_event', number)  
     print("Emitting event from server side! Random number is ", number , "emitted at ",  time.strftime("%H:%M:%S", t))
+
+    
+    time.sleep(interval)
+   
+
     socketio.start_background_task(target=server_side_send, interval=1) # call same function a second later
     return
 
