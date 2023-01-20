@@ -1,4 +1,4 @@
-(banner goes here)
+![ Banner for this app, a visualization of receiving notifications](https://raw.githubusercontent.com/robss2020/computerplayverysexymusic/main/banner.png "Receiving notifications")
 
 # Flask app that sends pushes server-side messages using SocketIO
 
