@@ -1,6 +1,10 @@
-![ Banner for this app, a visualization of receiving notifications](https://raw.githubusercontent.com/robss2020/flasksocketioexample/main/banner.png "Receiving notifications")
+![ Banner for this app, a visualization of receiving notifications](https://raw.githubusercontent.com/robss2020/flasksocketioexample/main/banner2.png "Receiving notifications")
 
 # Flask app that pushes server-side messages using SocketIO
+
+## What this is
+
+This is a short flask app that pushes messages to a browser, it is a demonstration you can expand on.
 
 ## Motivation
 
