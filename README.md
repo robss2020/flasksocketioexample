@@ -47,6 +47,9 @@ In any browser, navigate to http://127.0.0.1:5000 and you will see the console e
 
 Hopefully this is enough for you to get this working in your app.
 
+![ Screenshot of the app](https://raw.githubusercontent.com/robss2020/flasksocketioexample/main/screenshot.PNG "Screenshot of the app")
+
+
 ## Resources
 
 - https://flask-socketio.readthedocs.io/en/latest/
