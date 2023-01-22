@@ -11,7 +11,7 @@
 # in for any other event you might have).
 
 # If the random number 1-100 is less than 90 (you can reduce this to reduce chances
-# of a broadcast) the server pushes the mssage and the front end receives it.
+# of a broadcast) the server pushes the message and the front end receives it.
 
 from flask import Flask, render_template, jsonify
 import random
@@ -30,12 +30,18 @@ socketio = SocketIO(app)
 
 def server_side_send(interval):
     number = random.randint(1, 100)
-    t = time.localtime()
-    socketio.emit('my_event', number)  
-    print("Emitting event from server side! Random number is ", number , "emitted at ",  time.strftime("%H:%M:%S", t))
+    if number < 90: # lower 90 to send less frequently, e.g. 2 would only send 2% of the time.
+        t = time.localtime()
+        socketio.emit('my_event', number)  
+        print("Emitting event from server side! Random number is ", number , "emitted at ",  time.strftime("%H:%M:%S", t))
+
+    else:
+        pass
 
     
     time.sleep(interval)
+
+
    
 
     socketio.start_background_task(target=server_side_send, interval=1) # call same function a second later
@@ -59,10 +65,7 @@ def index():
 @app.route('/random')
 def random_number():
     number = random.randint(1, 100)
-    if number < 90: # lower 90 to send less frequently, e.g. 2 would only send 2% of the time.
-        return jsonify(number=number)
-    else:
-        return jsonify(number=None)
+    return jsonify(number=number)
 
 if __name__ == '__main__':
     socketio.run(app)
